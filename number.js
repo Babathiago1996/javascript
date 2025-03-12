@@ -31,4 +31,6 @@ likes ++;
 likes --;
 console.log(likes)
 
+let money =20
+console.log(money .toFixed(2))
 
