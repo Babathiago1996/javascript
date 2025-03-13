@@ -20,7 +20,7 @@ console.log(sentence)
 
 //  
 let balance=2000
-let loanAmount=6000
+let loanAmount=600
 
 loanAmount <=balance*2? console.log("eligible for loan"):console.log("not eligible")
 
