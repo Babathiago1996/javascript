@@ -43,6 +43,7 @@ function wordConverter(word = "word") {
   console.log(word.toLocaleUpperCase());
 }
 wordConverter("cat");
+// 
 function replaceAllE(word) {
   console.log(word.toLowerCase().replaceAll("e", "*"));
 }
@@ -97,7 +98,7 @@ function addTwoNums(n1, n2, n3) {
 console.log(addTwoNums(43, 5, 6));
 
 function weekDays(week) {
-  const days = weeks * 7;
+  const days = week * 7;
   return days;
 }
 function daysMinute(hour) {
@@ -112,7 +113,7 @@ function hrsToMins(hour) {
 console.log(hrsToMins);
 
 function daysOfYears(years) {
-  return `years is equal to ${years*12} months`;
+  return `${years} is equal to ${years*12} months`;
 }
 console.log(daysOfYears(2));
 
