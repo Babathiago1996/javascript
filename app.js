@@ -1,159 +1,147 @@
-// [element, elemebt2, element3]
-// arrays usually contains the datatypes
-// empty arrays are falsy value
-const students =["david", "quadri", "isaac", "ibrahim","johnpaul"];
-// array property -length
-console.log(students);
-console.log(students.length);
-// getting element from an array,position
-console.log(students[0]);
-console.log(students[2])
-// change element in an array, position
-students[0]="Azeez"
-console.log(students)
-students[students.length-1]="john doe"
-students[3]="john"
-// 
-// array method
-// add and remove element from array(front or back)
-// structured data type
-// to add
-students.push("micheal")
-students.push("juwon")
-students.unshift
-// 
-console.log(students)
-// remove
-students.pop()
-students.shift()
-// 
-// include
-console.log(students.includes("David"))
-
-// indexOf lastIndexOf
-console.log(students)
-console.log(students.indexOf("isaac"))
-console.log(students.lastIndexOf("isaac"))
-console.log(students.at(2));
-// 
-// extract portion an array slice (start and end)
-console.log(students.slice(0,3));
-console.log(students.slice(4,7));
-// 
-// methods to convert arrays to string
-// join, tostring
-// console.log(students.join("@")); // another seperator
-// console.log(students.toString()); //
-// 
-// iterator methods 
-// higher order methods(function)= it needs another function as a parameter
-// forEach, map, find, filter,some,every, reduce
-// forEach -execute a function for every element in an array
-students.forEach((student)=>{
-console.log(student.toUpperCase());
-});
-// give me first letter 
-students.forEach((student) => {
-  console.log(student.charAt(0));
-});
-// map- creates a new array with the result of a function
-const smallCaseStudents =students.map((student)=>{
-    return student.toLowerCase()
-})
-console.log(smallCaseStudents);
-
-// filter create a new array with ement that pass a test(searxh condition)
-
-const myNum=[2,5,4,7,8,9,3]
-const greaterThan5=myNum.filter((num)=>{
-    return num>5
-})
-console.log(greaterThan5)
-const evenNumber=myNum.filter((num)=>{
-    return num %2===0
-})
-console.log(evenNumber)
-const oddNumber =myNum.filter((num)=>{
-    num % 2 !==1
-})
-const lengthGreaterThan6=students.filter((student)=>{
-    return student.length>6
-});
- console.log(lengthGreaterThan6);
-
- const favStudent =students.find((student)=>{
-    return student.length===5
- })
-     console.log(favStudent);
-
-
-//  find return the first element that passes a test(search condition)
-const findGreaterThan6 =myNum.find((num)=>{
-    return num >5;
-});
-console.log(findGreaterThan6);
-
-// some =return true if any of the element pass the test
-const ifSomeGreater5 =myNum.some((num)=>{
-   return num>5
-})
-console.log(ifSomeGreater5);
-// every-return true if all element passes a test
-const ifAllGreater5 =myNum.every((num)=>{
-    return num>5
-})
-console.log(ifAllGreater5);
-// reverse
-const carBrands=["Toyota", "Rollsroyce" ,"Bwm", "Ferrari","Tesla"]
-console.log(carBrands);
-
-// console.log(carBrands.reverse());
-console.log(carBrands.sort());// a-z
-console.log(carBrands.sort().reverse);// z-a
-
-
-// sorting number
-const prices=[200,400,600, 100,700,800]
-console.log(prices.sort())// buggy
-console.log(prices.sort((a,b) => a - b)); //smallest to highest
-console.log(prices.sort((a,b) => b-a)); //highest to low
-
-// concat
-const africanCountries =["Togo", "Ghana"]
-const AsiaCountries =["Singapore", "China","Japan"]
-const holidayLocation=africanCountries.concat(AsiaCountries)
-
-// reduce= reduces every element in an array to single value
-// two parameter, callback and start point
-const totalPrice2= prices.reduce(( acc, curr)=>{
-    return acc+curr;
-}, 0);
-console.log(totalPrice2)
-// using split
-const fruit ="banana"
-// split method on a string
-console.log(fruit.split(""))
-console.log(fruit.split("a"));
-
-// write a function that reverse the letter in a word
-// cat ---tac gel ---leg
-const reverseWord= (word)=>{
-    return word.split("").reverse().join("");
+// objects{ keys:value,key2:value2}
+const person={
+    firstName:"john",
+    lastName:"doe",
+    age:45,
+    isMarried:true,
+    friends:["jane","peter","mark"],
+    job:"teacher",
+    location:{
+    street:"vineyard",
+    area:"lekki",
+    city:"lagos",
+    zip:100011,
+Geolocation:{
+    lat:23.46,
+    lng:45.78
 }
-console.log(reverseWord("cat"))
-console.log(reverseWord("gel"))
-// 
-// palindrome-words that are spelt the same even if reverse
-// madam level tat pap eye noon
-function isPalinDrome(word){
-    // default to a standard lowercase or uppercase
-    return word.toLowerCase()===word.split("").reverse().join("").toLowerCase
 }
-console.log(isPalinDrome("Madam"))
-// 
-// SET - unique value in an array
-const users =["john","dave","nate","john","dave"];
-console.log(new Set(users))
+};
+// getting property from an object
+// notation and bracket notation
+console.log(person.age)
+console.log(person.firstName)
+console.log(person.lastName.toLocaleUpperCase())
 
-// destructuring
-// complex data structure
+// using bracket
+console.log(person["age"]);
+console.log(person["friends"]);
+
+console.log(`i live at ${person.location.street} estate, ${person.location.area} ${person.location.city}`)
+// adding a new property to an object
+person.workPlace ="apple company"
+console.log(person)
+person.location.landMark="City mall"
+
+// removing property value
+delete person.job
+
+const user ={
+    username:"ade001",
+    email:"ade001@gmail.com",
+    profilePic:"image",
+    age:35,
+    isLoggedIn:false,
+    isVerifeid:true,
+    post:["nigeria just get as e be", "i love food"],
+    welcomeUser: function (){
+        return this.isLoggedIn? `welcome ${this.username}`:"log in to continue";
+    },
+    verifyUser:function (){
+        return this.isVerifeid? `verification succesful`:"verify your account"
+    }
+};
+console.log(user.welcomeUser())
+console.log(user.verifyUser())
+
+// object method- developer writes the function
+// function declaration(this -refer to the object itself)
+//  that user welcome username or log in to continue
+const book={
+    title:"badland",
+    author:"james",
+    yearPublished:2005,
+    rating:5,
+    price:400,
+    genre:"comedy",
+    similarAuthor:["charles taylor","james brown","brunor"],
+    description :function () {
+       return `the book titled ${this.title} cost price ${this.price} and it is a ${this.genre} novel` 
+    },
+    recommedBook: function(){
+       return this.rating>3.5?"this book is recommended " : "not recommended"
+    }
+}
+console.log(book.description());
+console.log(book.recommedBook());
+// object.keys,object.value, object.entrie
+
+const transaction={
+    amount:4000,
+    date:"16/6/2005",
+    charges:25,
+    refNum:"tranx-246563638775",
+}
+console.log(Object.keys(transaction));
+console.log(Object.values(transaction));
+console.log(Object.entries(transaction));
+
+const match ={
+    teamA:"wolfsburg",
+    teamB:"lecce",
+    teamAScore:3,
+    teamBScore:2,
+    duration:96,
+    numOfSubsUsed:7,
+    stadium:"webley",
+    weather:"snowy",
+    determinedDOutCome :function (){
+         if( this.teamAScore >this.teamBScore){
+           return (`${this.teamA}  won`)
+        }else if (this.teamBScore >this .teamAScore){
+            return (`${this.teamB}won`)
+        }else{
+            return("it is a draw")
+        }
+    },
+    overwiew: function(){
+        return `the match between ${this.teamA} and  ${this.teamB} was played at ${this.stadium} in a ${this.weather} condition`
+    }
+}
+console.log(fouls, stadium, duration);
+
+    console.log(match.determinedDOutCome());
+    console.log(match.overwiew());
+
+    // objection destructuring- we are getting property from an object
+    const {teamA,stadium,duration}=match;
+    
+    const property={
+        name: "Exquisite villa",
+        rent: "2.3m/year",
+        bedroom:7,
+        bathroom:10,
+        cautionFee:5000,
+        legalFee:4000,
+        facility:["pool","sauna","theatre","gym"],
+        location:{
+            area:"gbagada",
+            city:"lagos",
+            num:45,
+            street:"charly boy",
+            geo:{
+                lat:100.27,
+                lng:45.78
+            }
+        },
+    };
+    const { name, rent,location :{street,city,geo:{lng}}} = property
+// 
+const product={
+    price:9.99,
+    discount:7.17,
+}
+const {price,discount}=product;
+let newPrice= price-(discount/100)*price
+console.log(newPrice.toFixed(2));
+    
