@@ -121,7 +121,7 @@ console.log(vintageCars);
 
 let totalrentPrice = cars.reduce((acc, car) => acc + car.rentPrice, 0);
 
-const carsMorethan100 = cars.every((c) => c.rentPrice > 100);
+const carsMorethan100 = cars.every((car) => car.rentPrice > 100);
 
 let myName = "Kelvin";
 // == ===
